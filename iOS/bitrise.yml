@@ -12,4 +12,4 @@ workflows:
       pull_request: []
     status_report_name: bitrise/iOS
 include:
-  - path: ./../common/bitrise.yml
+  - path: common/bitrise.yml
