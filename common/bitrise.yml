@@ -3,9 +3,9 @@ meta:
     stack: linux-docker-android-22.04
     machine_type_id: standard
 step_bundles:
-  envs:
-  - SUBDIRECTORY: "common"
   hello-world:
+    envs:
+    - SUBDIRECTORY: "common"
     steps:
     - activate-ssh-key@4:
         run_if: '{{getenv "SSH_RSA_PRIVATE_KEY" | ne ""}}'
