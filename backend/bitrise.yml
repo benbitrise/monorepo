@@ -1,0 +1,15 @@
+---
+workflows:
+  primary:
+    steps:
+    - bundle::hello-world:
+        envs:
+        - SUBDIRECTORY: "backend"
+    triggers:
+      push:
+      - branch: "*"
+        changed_files: backend/*
+      pull_request: []
+    status_report_name: bitrise/backend
+include:
+  - path: ./../common/bitrise.yml

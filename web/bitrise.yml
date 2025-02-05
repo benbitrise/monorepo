@@ -1,0 +1,15 @@
+---
+workflows:
+  primary:
+    steps:
+    - bundle::hello-world:
+        envs:
+        - SUBDIRECTORY: "web"
+    triggers:
+      push:
+      - branch: "*"
+        changed_files: web/*
+      pull_request: []
+    status_report_name: bitrise/web
+include:
+  - path: ./../common/bitrise.yml

@@ -1,0 +1,15 @@
+---
+workflows:
+  primary:
+    steps:
+    - bundle::hello-world:
+        envs:
+        - SUBDIRECTORY: "android"
+    triggers:
+      push:
+      - branch: "*"
+        changed_files: android/*
+      pull_request: []
+    status_report_name: bitrise/android
+include:
+  - path: ./../common/bitrise.yml
