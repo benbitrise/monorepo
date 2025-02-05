@@ -16,3 +16,5 @@ workflows:
     status_report_name: bitrise/iOS
 include:
   - path: common/bitrise.yml
+    branch: main
+    repository: benbitrise/monorepo
