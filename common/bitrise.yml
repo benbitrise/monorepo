@@ -30,7 +30,7 @@ workflows:
         - content: |-
             #!/usr/bin/env bash
             bitrise validate -c $PROJECT_PATH/bitrise.yml
-        title: Confirm valid yml
+        title: Confirm valid bitrise.yml
     triggers:
       pull_request:
       - changed_files: common/*
