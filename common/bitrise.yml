@@ -18,3 +18,19 @@ step_bundles:
         - content: |-
             #!/usr/bin/env bash
             echo "hello $SUBDIRECTORY"
+workflows:
+  check-yml:
+    steps:
+    - activate-ssh-key@4: {}
+    - git-clone@8:
+        inputs:
+        - merge_pr: "no"
+    - script@1:
+        inputs:
+        - content: |-
+            #!/usr/bin/env bash
+            bitrise validate -c $PROJECT_PATH/bitrise.yml
+        title: Confirm valid yml
+    triggers:
+      pull_request:
+      - changed_files: common/*

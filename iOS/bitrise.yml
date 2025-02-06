@@ -6,10 +6,11 @@ workflows:
         envs:
         - SUBDIRECTORY: "iOS"
     triggers:
-      push:
-      - branch: "*"
-        changed_files: iOS/*
-      pull_request: []
-    status_report_name: bitrise/iOS
+      pull_request:
+      - changed_files: iOS/*
+    status_report_name: bitrise/<project_title>/<event_type>
+app:
+  envs:
+  - PROJECT_PATH: iOS
 include:
   - path: common/bitrise.yml

@@ -6,10 +6,11 @@ workflows:
         envs:
         - SUBDIRECTORY: "web"
     triggers:
-      push:
-      - branch: "*"
-        changed_files: web/*
-      pull_request: []
-    status_report_name: bitrise/web
+      pull_request:
+      - changed_files: web/*
+    status_report_name: bitrise/<project_title>/<event_type>
 include:
   - path: common/bitrise.yml
+app:
+  envs:
+  - PROJECT_PATH: web

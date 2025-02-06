@@ -6,10 +6,11 @@ workflows:
         envs:
         - SUBDIRECTORY: "android"
     triggers:
-      push:
-      - branch: "*"
-        changed_files: android/*
-      pull_request: []
-    status_report_name: bitrise/android
+      pull_request:
+      - changed_files: android/*
+    status_report_name: bitrise/<project_title>/<event_type>
+app:
+  envs:
+  - PROJECT_PATH: android
 include:
   - path: common/bitrise.yml
